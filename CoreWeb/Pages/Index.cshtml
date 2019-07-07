@@ -1,8 +1,34 @@
 ﻿@page
 
-    @section Ad{ 
-                   index
-               }
+@section Ad{
+    index
+}
+
+@section Add{
+    @for (int i = 1; i < 6; i++)
+    {
+        for (int j = 1; j <= (2 * i - 1); j++)
+        {
+
+            if (i % 2 == 0)
+            {
+                <span style="color:blue">i</span>
+                
+            }
+            else
+            {
+                <span style="color:red">i</span>
+                
+            }
+        }
+        <br />
+
+
+
+    }
+}
+
+<h1>我是Index</h1>
 
 
 
