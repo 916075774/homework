@@ -7,22 +7,24 @@
 @section Add{
     @for (int i = 1; i < 6; i++)
     {
-        for (int j = 1; j <= (2 * i - 1); j++)
+        for (int j = i; j < 5; j++)
+        {
+            <span>&nbsp;</span>
+        }
+
+        for (int k = 1; k <= (2 * i - 1); k++)
         {
 
             if (i % 2 == 0)
             {
                 <span style="color:blue">i</span>
-                
             }
             else
             {
                 <span style="color:red">i</span>
-                
             }
         }
         <br />
-
 
 
     }
