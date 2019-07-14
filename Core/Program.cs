@@ -14,6 +14,10 @@ namespace HomeWork._17bang
     {
         public static void Main(string[] args)
         {
+            string q = null;
+            string p = q ?? "3";
+            Console.WriteLine(p);
+
 
             //Console.WriteLine(Type.GetType("Junior.Student"));
 

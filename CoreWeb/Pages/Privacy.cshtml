@@ -1,8 +1,14 @@
 ﻿@page
-@model PrivacyModel
 @{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h2>@ViewData["Title"]</h2>
 
-<p>Use this page to detail your site's privacy policy.</p>
+}
+
+@*<img asp-append-version="true" src="~/images/banner1.svg" />
+    <img src="~/images/banner1.svg"/>*@
+
+<pager path="/Article" pagePrivacy="2">2</pager>
+@*<a href="/Article/Page-2">2</a>*@
+
+
+
+
