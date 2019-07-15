@@ -1,5 +1,19 @@
 ﻿@page
-@{
-    
+@model RegisterModel
+@{ 
+    Layout = null;
 }
-<h1>我是代码页面</h1>
+
+<form method="post" asp-page="/Register">
+    <div>
+        <label>用户名：</label><input asp-for="Register.Name" />
+        <span asp-validation-for="Register.Name"></span>
+    </div>
+    <div>
+        <label>密码：</label><input type="password" asp-for="Register.Password" />
+        <span asp-validation-for="Register.Password"></span>
+    </div>
+    <div>
+        <button type="submit">提交</button>
+    </div>
+</form>
