@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SRV;
+using System.ComponentModel.DataAnnotations;
 
 namespace CoreWeb.Pages
 {
@@ -31,13 +27,14 @@ namespace CoreWeb.Pages
             if (_userService.HasExist(Register.Name))
             {
                 ModelState.AddModelError("Register.Name", "* 用户名已存在");
+                return;
             }
             _userService.Register(Register.Name, Register.Password);
         }
     }
     public class Register
     {
-        [Required(ErrorMessage="* 用户名必须填写")]
+        [Required(ErrorMessage = "* 用户名必须填写")]
         public string Name { get; set; }
         public string Password { get; set; }
     }

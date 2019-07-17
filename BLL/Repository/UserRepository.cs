@@ -1,24 +1,31 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace BLL.Repository
 {
-    public class UserRepository
+    public class UserRepository : DbContext
     {
-        private static IList<User> _users;
+        public DbSet<User> _users { get; set; }
 
         public void Save(User user)
         {
-            _users = _users ?? new List<User>();
             _users.Add(user);
+            SaveChanges();
         }
 
         public User GetByName(string name)
         {
-            return _users == null ? null
-                : _users.Where(u => u.Name == name).SingleOrDefault();
+            return _users.Where(u => u.Name == name).SingleOrDefault();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bang;Integrated Security=True;";
+            optionsBuilder.UseSqlServer(connectionString);
+
         }
 
     }
