@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRV", "SRV\SRV.csproj", "{5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{06F347A3-1AE7-47CB-AFDB-0DE5B830DD78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "Factory\Factory.csproj", "{26A38CA4-2E14-4AFB-B2B1-ED643E151804}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory", "Factory\Factory.csproj", "{26A38CA4-2E14-4AFB-B2B1-ED643E151804}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

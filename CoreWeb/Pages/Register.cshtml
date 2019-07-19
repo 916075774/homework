@@ -1,10 +1,13 @@
 ﻿@page
 @model RegisterModel
-@{ 
-    Layout = null;
-}
 
-<form method="post" asp-page="/Register">
+@section Add{
+    <h1>注册😀</h1>
+}
+<title>@ViewData["title"]</title>
+
+
+<form method="post" asp-page="/Index">
     <div>
         <label>用户名：</label><input asp-for="Register.Name" />
         <span asp-validation-for="Register.Name"></span>
@@ -14,6 +17,14 @@
         <span asp-validation-for="Register.Password"></span>
     </div>
     <div>
-        <button type="submit">提交</button>
+        <label>确认密码：</label><input type="password" asp-for="Register.Password" />
+        <span asp-validation-for="Register.Password"></span>
     </div>
+    <div>
+        <label>绑定邮箱：</label><input type="text"  />
+        
+    </div>
+    <button type="submit">注册</button>
+    <h5 style="color:brown"><a href="/Index">返回首页</a></h5>
+
 </form>

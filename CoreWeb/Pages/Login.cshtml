@@ -1,0 +1,35 @@
+﻿@page
+@model LoginModel
+
+@section Add{
+    <h1>登录😁</h1>
+}
+
+<title>@ViewData["title"]</title>
+
+<form method="post" asp-page="/Index">
+    <div>
+        <label>用户名：</label><input "text"  />
+
+    </div>
+    <div>
+        <label>密码：</label><input type="password" name="Passwork" />
+
+    </div>
+    <br />
+    <div>
+        <button type="submit">登录</button><br /><br />
+    </div>
+</form>
+
+<form method="post" asp-page="/Register">
+    <button type="submit">注册</button>
+</form>
+
+<form method="post" asp-page="">
+    <button type="submit">忘记密码</button>
+</form>
+
+<h5 style="color:brown"><a href="/Index">返回首页</a></h5>
+
+

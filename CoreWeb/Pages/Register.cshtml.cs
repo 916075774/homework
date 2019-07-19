@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+ï»¿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SRV;
 using System.ComponentModel.DataAnnotations;
@@ -16,6 +16,7 @@ namespace CoreWeb.Pages
         public Register Register { get; set; }
         public void OnGet()
         {
+            ViewData ["title"] = "ä¸€èµ·å¸®Â·æ³¨å†Œâ˜º";
 
         }
         public void OnPost()
@@ -26,7 +27,7 @@ namespace CoreWeb.Pages
             }
             if (_userService.HasExist(Register.Name))
             {
-                ModelState.AddModelError("Register.Name", "* ÓÃ»§ÃûÒÑ´æÔÚ");
+                ModelState.AddModelError("Register.Name", "* ç”¨æˆ·åå·²å­˜åœ¨");
                 return;
             }
             _userService.Register(Register.Name, Register.Password);
@@ -34,7 +35,7 @@ namespace CoreWeb.Pages
     }
     public class Register
     {
-        [Required(ErrorMessage = "* ÓÃ»§Ãû±ØĞëÌîĞ´")]
+        [Required(ErrorMessage = "* ç”¨æˆ·åå¿…é¡»å¡«å†™")]
         public string Name { get; set; }
         public string Password { get; set; }
     }
