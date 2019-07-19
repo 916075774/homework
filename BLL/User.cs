@@ -11,7 +11,10 @@ namespace BLL
 
         public void Register()
         {
+            if (InviteBy != null)
+            {
 
+            }
         }
     }
 }

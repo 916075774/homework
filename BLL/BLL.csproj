@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190717134714_InviteBy.cs" />
+    <Compile Remove="Migrations\20190717134714_InviteBy.Designer.cs" />
+    <Compile Remove="Migrations\20190718090940_SendMessageToInvitedBy.cs" />
+    <Compile Remove="Migrations\20190718090940_SendMessageToInvitedBy.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
   </ItemGroup>
 

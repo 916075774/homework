@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BLL.Migrations
 {
     [DbContext(typeof(UserRepository))]
-    [Migration("20190717134714_InviteBy")]
+    [Migration("20190718121701_InviteBy")]
     partial class InviteBy
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
