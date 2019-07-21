@@ -14,12 +14,24 @@ namespace BLL.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true)
+                    Password = table.Column<string>(nullable: true),
+                    InviteById = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK__users__users_InviteById",
+                        column: x => x.InviteById,
+                        principalTable: "_users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX__users_InviteById",
+                table: "_users",
+                column: "InviteById");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

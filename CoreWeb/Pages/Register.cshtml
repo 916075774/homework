@@ -4,27 +4,32 @@
 @section Add{
     <h1>注册😀</h1>
 }
+
 <title>@ViewData["title"]</title>
 
-
-<form method="post" asp-page="/Index">
+<form method="post">
     <div>
         <label>用户名：</label><input asp-for="Register.Name" />
         <span asp-validation-for="Register.Name"></span>
     </div>
     <div>
-        <label>密码：</label><input type="password" asp-for="Register.Password" />
+        <label>密码：</label><input asp-for="Register.Password" />
         <span asp-validation-for="Register.Password"></span>
     </div>
     <div>
-        <label>确认密码：</label><input type="password" asp-for="Register.Password" />
-        <span asp-validation-for="Register.Password"></span>
+        <label>确认密码：</label><input asp-for="Register.ConfirmPassword" />
+        <span asp-validation-for="Register.ConfirmPassword"></span>
     </div>
     <div>
-        <label>绑定邮箱：</label><input type="text"  />
+        <label>绑定邮箱：<input type="text" /></label>
+    </div>
+    <div>
+        <label>星座：</label>
+        <select asp-for="UserConstellation" asp-items="Html.GetEnumSelectList(typeof(Constellation))"></select>
         
-    </div>
+    </div><br />
     <button type="submit">注册</button>
+    <h5 style="color:brown"><a href="/Login">返回登录</a></h5>
     <h5 style="color:brown"><a href="/Index">返回首页</a></h5>
 
 </form>

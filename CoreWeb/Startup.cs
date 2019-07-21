@@ -50,8 +50,12 @@ namespace CoreWeb
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy(new CookiePolicyOptions
+            //{
+            //    CheckConsentNeeded = x => false
+            //});
 
+            app.UseCookiePolicy();
             app.UseMvc();
         }
     }

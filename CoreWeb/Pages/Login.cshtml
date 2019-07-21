@@ -7,29 +7,27 @@
 
 <title>@ViewData["title"]</title>
 
-<form method="post" asp-page="/Index">
+<form method="post">
     <div>
-        <label>用户名：</label><input "text"  />
-
+        <label>用户名：</label><input asp-for="Login.UserName" />
+        <span asp-validation-for="Login.UserName"></span>
     </div>
     <div>
-        <label>密码：</label><input type="password" name="Passwork" />
-
+        <label>密码：</label><input asp-for="Login.Password" />
+        <span asp-validation-for="Login.Password"></span>
     </div>
     <br />
     <div>
-        <button type="submit">登录</button><br /><br />
+        <button type="submit">登录</button>
+
+        <label><input type="checkbox" asp-for="Login.Remember" />记住我</label><br />
     </div>
 </form>
 
-<form method="post" asp-page="/Register">
-    <button type="submit">注册</button>
+<form method="get" asp-page="Index">
+    <button type="submit">忘记密码</button><br />
+    <button asp-page="Register" type="submit">注册</button>
 </form>
 
-<form method="post" asp-page="">
-    <button type="submit">忘记密码</button>
-</form>
 
 <h5 style="color:brown"><a href="/Index">返回首页</a></h5>
-
-

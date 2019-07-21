@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CoreWeb.Pages.TasK.History
 {
-    public class MonthModel : PageModel
+    public class MonthModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         public void OnGet()
         {

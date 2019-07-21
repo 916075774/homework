@@ -8,7 +8,10 @@ namespace Factory
     {
         static void Main(string[] args)
         {
-            new UserRepository().Database.Migrate();
+          var db=  new Db().Database;
+
+            db.EnsureDeleted();
+
             Console.WriteLine("Hello World!");
         }
     }

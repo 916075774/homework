@@ -6,17 +6,20 @@ using System.ComponentModel.DataAnnotations;
 namespace CoreWeb.Pages
 {
     [BindProperties]
-    public class RegisterModel : PageModel
+    public class RegisterModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
+        public Constellation UserConstellation { get; set; }
+        public Register Register { get; set; }
+
         private UserService _userService;
         public RegisterModel()
         {
             _userService = new UserService();
         }
-        public Register Register { get; set; }
+
         public void OnGet()
         {
-            ViewData ["title"] = "一起帮·注册☺";
+            ViewData["title"] = "注册🙈";
 
         }
         public void OnPost()
@@ -31,12 +34,35 @@ namespace CoreWeb.Pages
                 return;
             }
             _userService.Register(Register.Name, Register.Password);
+
+            Response.Redirect("Welcome");
         }
     }
     public class Register
     {
         [Required(ErrorMessage = "* 用户名必须填写")]
+        [MaxLength(25, ErrorMessage = "* 用户名长度必须在2-25之间")]
+        [MinLength(2, ErrorMessage = "* 用户名长度必须在2-25之间")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "* 密码必须填写")]
+        [MaxLength(25, ErrorMessage = "* 密码长度必须在2-25之间")]
+        [MinLength(2, ErrorMessage = "* 密码必须在2-25之间")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Compare("Password",ErrorMessage ="* 两次输入密码不一致")]
+        public string ConfirmPassword { get; set; }
     }
+    public enum Constellation
+    {
+        [Display(Name = "金牛座")]
+        Taurus,
+        [Display(Name = "处女座")]
+        Virgo,
+        [Display(Name = "天秤座")]
+        Libra,
+    }
+
 }

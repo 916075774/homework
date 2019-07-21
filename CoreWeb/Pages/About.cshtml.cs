@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CoreWeb.Pages
 {
-    public class AboutModel : PageModel
+    public class AboutModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         public string Message { get; set; }
 

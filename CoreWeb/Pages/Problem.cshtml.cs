@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CoreWeb.Pages
 {
-    public class ProblemModel : PageModel
+    public class ProblemModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         public void OnGet()
         {

@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CoreWeb.Pages
 {
-    public class IndexModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+    public class WelcomeModel : PageModel
     {
         public void OnGet()
         {
-            ViewData["title"] = "一起帮·首页";
+            ViewData["title"] = "注册成功👌";
         }
     }
 }
