@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreWeb.Pages.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CoreWeb.Pages
 {
-    public class IndexModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+    public class IndexModel : _LayoutModel
     {
-        public void OnGet()
+        public override void OnGet()
         {
+            
             ViewData["title"] = "一起帮·首页";
         }
     }

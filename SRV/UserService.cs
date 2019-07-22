@@ -24,6 +24,24 @@ namespace SRV
             return _userRepository.GetByName(username) != null;
         }
 
+        public UserModel GetById(int id)
+        {
+            User user = _userRepository.GetById(id);
+            if (user == null)
+            {
+                return null;
+            }
+            else
+            {
+                UserModel model = new UserModel
+                {
+                    Id = user.Id,
+                    Md5Password = user.Password,
+                };
+                return model;
+            }
+        }
+
         public UserModel GetLoginInfo(string userName)
         {
             User user = _userRepository.GetByName(userName);
@@ -48,15 +66,11 @@ namespace SRV
             return User.GetMd5Hash(rawPassword) == MD5Password;
         }
 
-        public object GeyByName(string userName)
+        public class UserModel
         {
-            throw new NotImplementedException();
-        }
-    }
+            public int Id { get; set; }
 
-    public class UserModel
-    {
-        public int Id { get; set; }
-        public string Md5Password { get; set; }
+            public string Md5Password { get; set; }
+        }
     }
 }

@@ -1,20 +1,59 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
     <link rel="shortcut icon" type="image/ico" href="~/picture01.ico" media="screen" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 </head>
 <body>
-    @*<header>大型秃头现场欢迎你</header>*@
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+
+        <a class="navbar-brand" href="./Index">首页</a>
+        <!-- Navbar text-->
+        <h6 style="color:aliceblue">欢迎你，酒店的旅客</h6>
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">求助</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">意见建议</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Register">注册</a>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="Login" id="navbardrop" data-toggle="dropdown">
+                    登录
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="Login">登录</a>
+                    <a class="dropdown-item" href="">绑定邮箱</a>
+                    <a class="dropdown-item" href="#">退出登录</a>
+                </div>
+                <div class="dropdown-menu">
+                </div>
+            </li>
+
+        </ul>
+    </nav>
+    <br>
 
     <section>
         @RenderSection("Add", true)
     </section>
 
     @RenderBody()
-    @*<footer>开始你的秃头之路吧……</footer>*@
 
 </body>
 </html>

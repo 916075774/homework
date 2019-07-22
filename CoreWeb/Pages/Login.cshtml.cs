@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SRV;
+using static SRV.UserService;
 
 namespace CoreWeb.Pages
 {
@@ -50,11 +51,14 @@ namespace CoreWeb.Pages
                 return;
             }
 
-            Response.Cookies.Append(_userId, model.Id.ToString(), 
-                new CookieOptions { IsEssential = true });
+            Response.Cookies.Append(_userId, model.Id.ToString(),
+                new CookieOptions
+                {
+                    IsEssential = true
+                }) ;
             Response.Cookies.Append("auth", model.Md5Password);
 
-            Response.Redirect("");
+            Response.Redirect("Index");
         }
 
     }

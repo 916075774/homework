@@ -28,5 +28,9 @@ namespace BLL.Repository
 
         }
 
+        public User GetById(int id)
+        {
+            return null;
+        }
     }
 }
