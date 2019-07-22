@@ -55,7 +55,7 @@ namespace CoreWeb
             //    CheckConsentNeeded = x => false
             //});
 
-            app.UseCookiePolicy();
+           /* app.UseCookiePolicy()*/
             app.UseMvc();
         }
     }

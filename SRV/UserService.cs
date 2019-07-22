@@ -1,5 +1,6 @@
 ﻿using BLL;
 using BLL.Repository;
+using SRV.Model;
 using System;
 
 namespace SRV
@@ -36,7 +37,27 @@ namespace SRV
                 UserModel model = new UserModel
                 {
                     Id = user.Id,
-                    Md5Password = user.Password,
+                    Name=user.Name,
+                    Md5PassWord = user.Password,
+                };
+                return model;
+            }
+
+        }
+
+        public UserModel GetUser(string userName)
+        {
+            User user = _userRepository.GetByName(userName);
+            if (user == null)
+            {
+                return null;
+            }
+            else
+            {
+                UserModel model = new UserModel
+                {
+                    Id = user.Id,
+                    Md5PassWord = user.Password,
                 };
                 return model;
             }
@@ -54,7 +75,7 @@ namespace SRV
                 UserModel model = new UserModel();
 
                 model.Id = user.Id;
-                model.Md5Password = user.Password;
+                model.Md5PassWord = user.Password;
 
                 return model;
             }
@@ -66,11 +87,10 @@ namespace SRV
             return User.GetMd5Hash(rawPassword) == MD5Password;
         }
 
-        public class UserModel
-        {
-            public int Id { get; set; }
-
-            public string Md5Password { get; set; }
-        }
+        //public class UserModel
+        //{
+        //    public int Id { get; set; }
+        //    public string Md5Password { get; set; }
+        //}
     }
 }

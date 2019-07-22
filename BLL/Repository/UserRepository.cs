@@ -30,7 +30,8 @@ namespace BLL.Repository
 
         public User GetById(int id)
         {
-            return null;
+            return _users.Where(u => u.Id == id).SingleOrDefault();
+
         }
     }
 }

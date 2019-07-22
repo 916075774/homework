@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model _LayoutModel
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -14,9 +15,16 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 </head>
 <body>
+    @if (ViewData["UserStatus"] == null)
+    {
+        <a href="/Login">登录</a>
+    }
+    else
+    {
+        <span>@ViewData["UserStatus"]</span>
+    }
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <!-- Brand -->
-
         <a class="navbar-brand" href="./Index">首页</a>
         <!-- Navbar text-->
         <h6 style="color:aliceblue">欢迎你，酒店的旅客</h6>
@@ -44,14 +52,20 @@
                 <div class="dropdown-menu">
                 </div>
             </li>
-
         </ul>
     </nav>
     <br>
-
-    <section>
-        @RenderSection("Add", true)
-    </section>
+    @*<header>
+        欢迎光临旅店
+        @if (ViewData["UserStatus"] == null)
+        {
+            <a href="/Login">登录</a>
+        }
+        else
+        {
+            <span>@ViewData["UserStatus"]</span>
+        }
+    </header>*@
 
     @RenderBody()
 

@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreWeb.Pages.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SRV;
+using SRV.Model;
 using static SRV.UserService;
 
 namespace CoreWeb.Pages
 {
     [BindProperties]
-    public class LoginModel : PageModel
+    public class LoginModel : _LayoutModel
     {
         private const string _userId = "userId";
-
+        private const string _userMd5PassWord = "_userMd5PassWord";
         public Login Login { get; set; }
 
         private UserService _userService;
@@ -24,8 +26,9 @@ namespace CoreWeb.Pages
             _userService = new UserService();
         }
 
-        public void OnGet()
+        public override void OnGet()
         {
+            base.OnGet();
             ViewData["title"] = "登录❤";
         }
 
@@ -45,7 +48,7 @@ namespace CoreWeb.Pages
                 return;
             }
 
-            if (!_userService.PasswordCorrect(Login.Password, model.Md5Password))
+            if (!_userService.PasswordCorrect(Login.Password, model.Md5PassWord))
             {
                 ModelState.AddModelError("Login.Password", "* 用户名或密码错误");
                 return;
@@ -54,9 +57,13 @@ namespace CoreWeb.Pages
             Response.Cookies.Append(_userId, model.Id.ToString(),
                 new CookieOptions
                 {
-                    IsEssential = true
-                }) ;
-            Response.Cookies.Append("auth", model.Md5Password);
+                    Expires = DateTime.Now.AddDays(7)
+                });
+            Response.Cookies.Append(_userMd5PassWord, model.Md5PassWord,
+                new CookieOptions
+                { 
+                Expires = DateTime.Now.AddDays(7)
+                });
 
             Response.Redirect("Index");
         }
