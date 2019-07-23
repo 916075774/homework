@@ -25,9 +25,8 @@ namespace SRV
             return _userRepository.GetByName(username) != null;
         }
 
-        public UserModel GetById(int id)
+        private UserModel GetUserInfo(User user)
         {
-            User user = _userRepository.GetById(id);
             if (user == null)
             {
                 return null;
@@ -37,60 +36,34 @@ namespace SRV
                 UserModel model = new UserModel
                 {
                     Id = user.Id,
-                    Name=user.Name,
+                    Name = user.Name,
                     Md5PassWord = user.Password,
                 };
                 return model;
             }
+        }
 
+        public UserModel GetById(int id)
+        {
+            User user = _userRepository.GetById(id);
+            return GetUserInfo(user);
         }
 
         public UserModel GetUser(string userName)
         {
             User user = _userRepository.GetByName(userName);
-            if (user == null)
-            {
-                return null;
-            }
-            else
-            {
-                UserModel model = new UserModel
-                {
-                    Id = user.Id,
-                    Md5PassWord = user.Password,
-                };
-                return model;
-            }
+            return GetUserInfo(user);
         }
 
         public UserModel GetLoginInfo(string userName)
         {
             User user = _userRepository.GetByName(userName);
-            if (user == null)
-            {
-                return null;
-            }
-            else
-            {
-                UserModel model = new UserModel();
-
-                model.Id = user.Id;
-                model.Md5PassWord = user.Password;
-
-                return model;
-            }
-
+            return GetUserInfo(user);
         }
 
         public bool PasswordCorrect(string rawPassword, string MD5Password)
         {
             return User.GetMd5Hash(rawPassword) == MD5Password;
         }
-
-        //public class UserModel
-        //{
-        //    public int Id { get; set; }
-        //    public string Md5Password { get; set; }
-        //}
     }
 }

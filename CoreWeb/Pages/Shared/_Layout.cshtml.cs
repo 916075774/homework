@@ -12,13 +12,14 @@ namespace CoreWeb.Pages.Shared
 {
     public class _LayoutModel : PageModel
     {
-        private const string _userIdKey = "userId";
-        private const string _userMd5PassWord = "_userMd5PassWord";
+        public const string _userIdKey = "userId";
+        public const string _userMd5PassWord = "userMd5PassWord";
+
+        private string userIdValue;
+        private string userMd5PassWordValue;
 
         public virtual void OnGet()
         {
-            string userIdValue;
-            string userMd5PassWordValue;
             if (HttpContext.Request.Cookies.TryGetValue(_userIdKey, out userIdValue))
             {
                 if (HttpContext.Request.Cookies.TryGetValue(_userMd5PassWord, out userMd5PassWordValue))
@@ -33,7 +34,7 @@ namespace CoreWeb.Pages.Shared
             else
             {
                 ViewData["UserStatus"] = null;
-            }
+            }           
 
         }
     }

@@ -16,8 +16,6 @@ namespace CoreWeb.Pages
     [BindProperties]
     public class LoginModel : _LayoutModel
     {
-        private const string _userId = "userId";
-        private const string _userMd5PassWord = "_userMd5PassWord";
         public Login Login { get; set; }
 
         private UserService _userService;
@@ -54,18 +52,27 @@ namespace CoreWeb.Pages
                 return;
             }
 
-            Response.Cookies.Append(_userId, model.Id.ToString(),
+            Response.Cookies.Append(_userIdKey, model.Id.ToString());
+            Response.Cookies.Append(_userMd5PassWord, model.Md5PassWord);
+
+
+            if (Login.Remember)
+            {
+                Response.Cookies.Append(_userIdKey, model.Id.ToString(),
                 new CookieOptions
                 {
                     Expires = DateTime.Now.AddDays(7)
                 });
-            Response.Cookies.Append(_userMd5PassWord, model.Md5PassWord,
-                new CookieOptions
-                { 
-                Expires = DateTime.Now.AddDays(7)
-                });
+
+                Response.Cookies.Append(_userMd5PassWord, model.Md5PassWord,
+                    new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddDays(7)
+                    });
+            }
 
             Response.Redirect("Index");
+
         }
 
     }

@@ -15,17 +15,11 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 </head>
 <body>
-    @if (ViewData["UserStatus"] == null)
-    {
-        <a href="/Login">登录</a>
-    }
-    else
-    {
-        <span>@ViewData["UserStatus"]</span>
-    }
+
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <!-- Brand -->
-        <a class="navbar-brand" href="./Index">首页</a>
+        <a class="navbar-brand" href="/Index">首页</a>
         <!-- Navbar text-->
         <h6 style="color:aliceblue">欢迎你，酒店的旅客</h6>
         <!-- Links -->
@@ -36,36 +30,40 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">意见建议</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Register">注册</a>
-            </li>
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="Login" id="navbardrop" data-toggle="dropdown">
-                    登录
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="Login">登录</a>
-                    <a class="dropdown-item" href="">绑定邮箱</a>
-                    <a class="dropdown-item" href="#">退出登录</a>
-                </div>
-                <div class="dropdown-menu">
-                </div>
-            </li>
+
+            @if (ViewData["UserStatus"] == null)
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/Login" id="navbardrop" data-toggle="dropdown">
+                        @ViewData["UserStatus"] 未登录
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/Login">登录</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Register">注册</a>
+                </li>
+            }
+            else
+            {
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/Login" id="navbardrop" data-toggle="dropdown">
+                        @ViewData["UserStatus"]
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/Login">登录</a>
+                        <a class="dropdown-item" href="">绑定邮箱</a>
+                        <a class="dropdown-item" href="/Logoff">退出登录</a>
+                    </div>
+                    <div class="dropdown-menu">
+                    </div>
+                </li>
+            }
         </ul>
     </nav>
     <br>
-    @*<header>
-        欢迎光临旅店
-        @if (ViewData["UserStatus"] == null)
-        {
-            <a href="/Login">登录</a>
-        }
-        else
-        {
-            <span>@ViewData["UserStatus"]</span>
-        }
-    </header>*@
 
     @RenderBody()
 

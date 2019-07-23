@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,20 +8,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CoreWeb.Pages
 {
-    public class IndexModel : _LayoutModel
+    public class LogoffModel : _LayoutModel
     {
         public override void OnGet()
         {
-            base.OnGet();
-
-            ViewData["title"] = "一起帮·首页";
-        }
-
-        public void OnPost()
-        {
-
-
-
+            Response.Cookies.Delete(_userIdKey);
+            Response.Cookies.Delete(_userMd5PassWord);
         }
     }
 }

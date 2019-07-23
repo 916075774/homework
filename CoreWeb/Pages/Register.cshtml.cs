@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CoreWeb.Pages.Shared;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SRV;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace CoreWeb.Pages
 {
     [BindProperties]
-    public class RegisterModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+    public class RegisterModel : _LayoutModel
     {
         public Constellation UserConstellation { get; set; }
         public Register Register { get; set; }
@@ -17,7 +18,7 @@ namespace CoreWeb.Pages
             _userService = new UserService();
         }
 
-        public void OnGet()
+        public override void OnGet()
         {
             ViewData["title"] = "注册🙈";
 
