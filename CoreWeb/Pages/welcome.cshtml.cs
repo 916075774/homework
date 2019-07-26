@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreWeb.Pages.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CoreWeb.Pages
 {
-    public class WelcomeModel : PageModel
+    public class WelcomeModel : _LayoutModel
     {
-        public void OnGet()
+        public override void OnGet()
         {
-            ViewData["title"] = "注册成功👌";
+            base.OnGet();
         }
     }
 }

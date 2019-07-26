@@ -12,6 +12,8 @@ namespace CoreWeb.Pages
     {
         public override void OnGet()
         {
+            base.OnGet();
+            ViewData["UserStatus"] = null;
             Response.Cookies.Delete(_userIdKey);
             Response.Cookies.Delete(_userMd5PassWord);
         }

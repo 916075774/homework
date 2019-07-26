@@ -26,7 +26,7 @@ namespace CoreWeb.Pages
 
         public override void OnGet()
         {
-
+            base.OnGet();
         }
 
 

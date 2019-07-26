@@ -20,6 +20,7 @@ namespace CoreWeb.Pages
 
         public override void OnGet()
         {
+            base.OnGet();
 
         }
         public void OnPost()
