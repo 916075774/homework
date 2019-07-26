@@ -12,15 +12,12 @@ namespace CoreWeb.Pages
     {
         public override void OnGet()
         {
-            base.OnGet();
+            //base.OnGet();
 
-            ViewData["title"] = "一起帮·首页";
         }
 
         public void OnPost()
         {
-
-
 
         }
     }

@@ -20,7 +20,6 @@ namespace CoreWeb.Pages
 
         public override void OnGet()
         {
-            ViewData["title"] = "注册🙈";
 
         }
         public void OnPost()

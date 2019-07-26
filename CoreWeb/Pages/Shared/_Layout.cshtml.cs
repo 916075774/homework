@@ -29,6 +29,11 @@ namespace CoreWeb.Pages.Shared
                     {
                         ViewData["UserStatus"] = model.Name;
                     }
+                    else
+                    {
+                        Response.Cookies.Delete(_userIdKey);
+                        Response.Cookies.Delete(_userMd5PassWord);
+                    }
                 }
             }
             else

@@ -26,8 +26,7 @@ namespace CoreWeb.Pages
 
         public override void OnGet()
         {
-            base.OnGet();
-            ViewData["title"] = "登录❤";
+
         }
 
 

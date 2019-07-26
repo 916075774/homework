@@ -1,9 +1,11 @@
 ﻿@page
 @model RegisterModel
+@{ 
+    ViewData["title"] = "一起帮·注册🙈";
+}
 
+<h4>注册🙈</h4>
 
-<title>@ViewData["title"]</title>
-<h5>@ViewData["title"]</h5>
 
 <form method="post">
     <div>
@@ -24,10 +26,7 @@
     <div>
         <label>星座：</label>
         <select asp-for="UserConstellation" asp-items="Html.GetEnumSelectList(typeof(Constellation))"></select>
-        
+
     </div><br />
     <button type="submit">注册</button>
-    @*<h5 style="color:brown"><a href="/Login">返回登录</a></h5>
-    <h5 style="color:brown"><a href="/Index">返回首页</a></h5>*@
-
 </form>

@@ -31,6 +31,10 @@ namespace CoreWeb
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddMemoryCache();
+            //ÒýÈësession
+            services.AddSession();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
