@@ -1,0 +1,25 @@
+﻿@page
+@model SuggestModel
+@{
+    ViewData["title"] = "一起帮·意见建议";
+}
+
+<h4>发布建议🐱‍👤</h4>
+<br />
+@if (ViewData["UserStatus"] == null)
+{
+    <h5 style="color:brown"><a>请先登录,再来发布建议唷~</a></h5>
+    <form method="post">
+        <button asp-page="/Login" type="submit">去登陆</button>
+    </form>
+}
+else
+{
+    <form method="post">
+        <div>
+            <label>*标题：</label><input type="text" asp-for="Suggest.Title" /><br />
+            <label>*内容：</label><textarea asp-for="Suggest.Content"></textarea>
+        </div>
+        <button asp-page="/" type="submit">提交</button>
+    </form>
+}

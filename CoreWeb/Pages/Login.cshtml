@@ -6,11 +6,6 @@
 
 <h4>登录❤</h4>
 
-@*<title>一起帮·登录❤</title>*@
-
-
-
-
 <form method="post">
     <div>
         <label>用户名：</label><input asp-for="Login.UserName" />
@@ -28,9 +23,9 @@
     </div>
 </form>
 
-<form method="get" asp-page="Index">
+<form method="get" asp-page="/Index">
     <button type="submit">忘记密码</button><br />
-    <button asp-page="Register" type="submit">去注册</button>
+    <button asp-page="/Register" type="submit">去注册</button>
 </form>
 
 
