@@ -8,6 +8,7 @@ namespace DBFactory
 {
     internal class RegissterFctory
     {
+        internal static User XiaoYu, XueMingLin;
 
         private static UserService _userService;
         static RegissterFctory()
@@ -18,8 +19,8 @@ namespace DBFactory
 
         internal static void Create()
         {
-            _userService.Register("小屿", Helper.PassWord);
-            _userService.Register("薛明林", Helper.PassWord);
+            XiaoYu = _userService.Register("小屿", Helper.PassWord);
+            XueMingLin = _userService.Register("薛明林", Helper.PassWord);
         }
 
     }

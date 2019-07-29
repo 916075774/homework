@@ -13,11 +13,13 @@ namespace SRV
             _userRepository = new UserRepository();
         }
 
-        public void Register(string username, string password)
+        public User Register(string username, string password)
         {
             User user = new User { Name = username, Password = password };
             user.Register();
             _userRepository.Save(user);
+
+            return user;
         }
 
         public bool HasExist(string username)

@@ -6,31 +6,28 @@ using System.Text;
 
 namespace BLL.Repository
 {
-    public class UserRepository : DbContext
+    public class UserRepository
     {
-        public DbSet<User> _users { get; set; }
+        private SQLContext _sqlContext;
+        public UserRepository()
+        {
+            _sqlContext = new SQLContext();
+        }
 
         public void Save(User user)
         {
-            _users.Add(user);
-            SaveChanges();
+            _sqlContext._users.Add(user);
+            _sqlContext.SaveChanges();
         }
 
         public User GetByName(string name)
         {
-            return _users.Where(u => u.Name == name).SingleOrDefault();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bang;Integrated Security=True;";
-            optionsBuilder.UseSqlServer(connectionString);
-
+            return _sqlContext._users.Where(u => u.Name == name).SingleOrDefault();
         }
 
         public User GetById(int id)
         {
-            return _users.Where(u => u.Id == id).SingleOrDefault();
+            return _sqlContext._users.Where(u => u.Id == id).SingleOrDefault();
 
         }
     }
