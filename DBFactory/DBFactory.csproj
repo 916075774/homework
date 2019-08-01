@@ -7,10 +7,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj" />
-    <ProjectReference Include="..\SRV\SRV.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Logging.Console">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.logging.console\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Console.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll</HintPath>
     </Reference>

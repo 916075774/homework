@@ -1,5 +1,5 @@
 ﻿using BLL;
-using SRV;
+using BLL.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,17 +10,25 @@ namespace DBFactory
     {
         internal static User XiaoYu, XueMingLin;
 
-        private static UserService _userService;
+        private static UserRepository _userRepository;
         static RegissterFctory()
         {
-            _userService = new UserService();
+            _userRepository = new UserRepository();
         }
-
 
         internal static void Create()
         {
-            XiaoYu = _userService.Register("小屿", Helper.PassWord);
-            XueMingLin = _userService.Register("薛明林", Helper.PassWord);
+            XiaoYu = register("小屿");
+            XueMingLin = register("薛明林");
+        }
+
+        private static User register(string name)
+        {
+            User user = new User { Name = name, Password = Helper.PassWord };
+            user.Register();
+            _userRepository.Save(user);
+
+            return user;
         }
 
     }

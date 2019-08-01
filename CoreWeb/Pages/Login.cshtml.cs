@@ -75,6 +75,15 @@ namespace CoreWeb.Pages
         }
 
     }
+    //public class User
+    //{
+          ////即能在UI层给你做验证，也能在entity映射数据库时加一个限制“不能为空”
+    //    [Required]    //多用途的
+    //    public string Name { get; set; }    
+    //    public string PassWord { get; set; }
+    //}
+
+
 }
 public class Login
 {

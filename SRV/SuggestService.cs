@@ -9,10 +9,7 @@ namespace SRV
     public class SuggestService
     {
         private SuggestRepository _suggestRepository;
-        //public SuggestService()
-        //{
 
-        //}
         public SuggestService()
         {
             _suggestRepository = new SuggestRepository();
