@@ -1,4 +1,4 @@
-﻿@model UI.Models.Register.IntextModel
+﻿@model UI.Models.Register.IndexModel
 @{
     ViewBag.Title = "Register";
 }
@@ -17,8 +17,12 @@
             {
                 <label>用户名：</label><br />@*@Html.LabelFor(m => m.UserName)<br />*@
                 @Html.TextBoxFor(m => m.UserName)<br />
-                <label>密码：</label><br />
-                @Html.PasswordFor(m => m.PassWord)<br />
+                @Html.ValidationMessageFor(m=>m.UserName)<br />
+
+                <label>密码：</label><br /> 
+                @Html.TextBoxFor(m => m.PassWord)<br />
+                @Html.ValidationMessageFor(m=>m.PassWord)<br />
+
                 <button type="submit">提交</button>
                 //<style="width:40px"></style="width:40px"> 设置尺寸的
             }
