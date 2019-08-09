@@ -4,8 +4,8 @@
 }
 
 <div class="jumbotron">
-    <h1>小屿真帅</h1>
-    <p class="lead">小屿同学，在源栈表现优异，不光长的帅，人也很可爱，作业做得好，睡觉睡得早，早起为学习，敲代码充饥。</p>
+    <h1>小屿</h1>
+    <p class="lead">作业做得好，睡觉睡得早，早起为学习，敲代码充饥。</p>
     <p><a href="#" class="btn btn-primary btn-lg">Look more &raquo;</a></p>
 </div>
 
@@ -13,30 +13,50 @@
     <div class="col-md-4">
         <h2>注册</h2>
         <p>
-            @using (Html.BeginForm())
-            {
-                <label>用户名：</label><br />@*@Html.LabelFor(m => m.UserName)<br />*@
-                @Html.TextBoxFor(m => m.UserName)<br />
-                @Html.ValidationMessageFor(m=>m.UserName)<br />
+        @ViewBag.greet
+        @using (Html.BeginForm())
+        {
+            <label>用户名：</label><br />
+            //@Html.LabelFor(m => m.UserName)<br />
+            @Html.TextBoxFor(m => m.UserName)<br />
+            //<input type="text" name="UserName" /><br />
+            @Html.ValidationMessageFor(m => m.UserName)<br />
 
-                <label>密码：</label><br /> 
-                @Html.TextBoxFor(m => m.PassWord)<br />
-                @Html.ValidationMessageFor(m=>m.PassWord)<br />
+            <label>密码：</label><br />
+            @Html.TextBoxFor(m => m.PassWord)<br />
+            @Html.ValidationMessageFor(m => m.PassWord)<br />
 
-                <button type="submit">提交</button>
-                //<style="width:40px"></style="width:40px"> 设置尺寸的
-            }
+            <div>
+                <label>@Html.RadioButtonFor(m => m.IsMale, true)男</label>
+                <label>@Html.RadioButtonFor(m => m.IsMale, false)女</label>
+            </div>
+            <div>
+                <label>来自：</label>@Html.EnumDropDownListFor(m => m.InCity)
+            </div>
+            <div>
+                <label>介绍：</label>@Html.TextAreaFor(m => m.SelfIntroduction)
+            </div>
+            <div>
+                <input type="submit" value="提交" />
+                <label>@Html.CheckBoxFor(m => m.RememberMe)记住我</label>
+            </div>
+
+            <h3>Id=@ViewBag.Id</h3>
+            <h3>UserName=@ViewBag.UserName</h3>
+            //<button type="submit">提交</button>
+            //<style="width:40px"></style="width:40px"> 设置尺寸的
+        }
         </p>
         <p><a class="btn btn-default" href="#"> Register &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Get more libraries</h2>
         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Web Hosting</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
     </div>
 </div>

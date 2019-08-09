@@ -10,20 +10,37 @@ namespace UI.Controllers
     public class RegisterController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            return View();
+            ViewData["greet"] = "Hello,小屿";
+
+            IndexModel model = new IndexModel
+            {
+                UserName = "你好",
+                IsMale = true
+            };
+            ViewBag.Id = id;
+
+            return PartialView(model);
         }
 
         [HttpPost]
-        public ActionResult Index(IndexModel model)
+        public ActionResult Index(string username, IndexModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
+            ViewBag.UserName = username;
 
             return View();
         }
+        [ChildActionOnly]
+        public PartialViewResult Reminder(int? id)
+        {
+            ViewBag.Id = id;
+            return PartialView();
+        }
+
     }
 }

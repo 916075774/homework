@@ -14,7 +14,19 @@ namespace UI.Models.Register
         [Required(ErrorMessage ="* 密码不能为空")]
         public string PassWord { get; set; }
 
+        public bool? IsMale { get; set; }
+        public string SelfIntroduction { get; set; }
+
+        public Cities? InCity { get; set; }
+
         public bool RememberMe { get; set; }
-        //public 
+    }
+
+    public enum Cities
+    {
+        ChongQing,
+        ChengDu,
+        [Display(Name = "广州")]
+        GuangZhou
     }
 }
