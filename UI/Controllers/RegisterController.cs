@@ -21,7 +21,7 @@ namespace UI.Controllers
             };
             ViewBag.Id = id;
 
-            return PartialView(model);
+            return View(model);
         }
 
         [HttpPost]
@@ -35,12 +35,16 @@ namespace UI.Controllers
 
             return View();
         }
+
         [ChildActionOnly]
         public PartialViewResult Reminder(int? id)
         {
             ViewBag.Id = id;
             return PartialView();
         }
-
+        public ActionResult Failed()
+        {
+            return View();
+        }
     }
 }

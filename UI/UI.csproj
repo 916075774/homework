@@ -120,12 +120,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Home\AboutModel.cs" />
+    <Compile Include="Models\Message\MineModel.cs" />
     <Compile Include="Models\Register\IntextModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -168,6 +170,7 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Register\Failed.cshtml" />
     <Content Include="Views\Register\Reminder.cshtml" />
+    <Content Include="Views\Message\Mine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

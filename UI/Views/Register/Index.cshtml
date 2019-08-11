@@ -37,12 +37,17 @@
                 <label>介绍：</label>@Html.TextAreaFor(m => m.SelfIntroduction)
             </div>
             <div>
-                <input type="submit" value="提交" />
                 <label>@Html.CheckBoxFor(m => m.RememberMe)记住我</label>
+
+
+                <label><input type="checkbox" name="Remember" value="true"/>记住你</label><br />
+                <input type="submit" value="提交" />
             </div>
 
             <h3>Id=@ViewBag.Id</h3>
             <h3>UserName=@ViewBag.UserName</h3>
+            
+            @Html.Partial("Reminder")
             //<button type="submit">提交</button>
             //<style="width:40px"></style="width:40px"> 设置尺寸的
         }
