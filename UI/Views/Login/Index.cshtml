@@ -1,0 +1,33 @@
+﻿@model UI.Models.Login.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h2>登录</h2>
+        <p>
+            @using (Html.BeginForm())
+            {
+                <label>用户名：</label><br />
+                @Html.TextBoxFor(m => m.UserName)<br />
+
+                <label>密码：</label><br />
+                @Html.TextBoxFor(m => m.PassWord)<br />
+
+                <div>
+                    <label><input type="checkbox" name="Remember" value="true" />记住你</label><br />
+                    <input type="submit" value="提交" />
+
+                </div>
+                //<button type="submit">提交</button>
+                //<style="width:40px"></style="width:40px"> 设置尺寸的
+            }
+        </p>
+    </div>
+</body>

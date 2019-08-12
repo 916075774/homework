@@ -36,8 +36,9 @@ namespace UI.Controllers
                     //使用item.Id处理
                 }
             }
-            return View();
+            return RedirectToActionPermanent("Mine");//这是一次新的请求
         }
 
+       
     }
 }

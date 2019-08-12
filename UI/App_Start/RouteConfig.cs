@@ -12,7 +12,7 @@ namespace UI
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            //可选参数
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

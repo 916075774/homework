@@ -1,18 +1,23 @@
 ﻿@model UI.Models.Message.MineModel
-
-<h1>我的消息</h1>
-
-@using (Html.BeginForm())
-{
-
-    for (int i = 0; i < Model.Messages.Count; i++)
-    {
-        var item = Model.Messages[i];
-        <div>
-            @Html.CheckBoxFor(m => Model.Messages[i].Selected)
-            @Model.Messages[i].Content
-            @Html.HiddenFor(m => Model.Messages[i].Id)
-        </div>
-    }
-    <button type="submit">提交</button>
+@{
+    ViewBag.Title = "Message";
 }
+<h1>我的消息</h1>
+<div class="jumbotron">
+    @using (Html.BeginForm())
+    {
+
+        for (int i = 0; i < Model.Messages.Count; i++)
+        {
+            var item = Model.Messages[i];
+            <div>
+                @Html.CheckBoxFor(m => Model.Messages[i].Selected)
+                @Model.Messages[i].Content
+                @Html.HiddenFor(m => Model.Messages[i].Id)
+            </div>
+        }
+        <br />
+        <button type="submit">提交</button>
+    }
+
+</div>

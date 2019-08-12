@@ -12,9 +12,8 @@ namespace UI.Controllers
         [HttpGet]
         public ActionResult Index(int? id)
         {
-            ViewData["greet"] = "Hello,小屿";
 
-            IndexModel model = new IndexModel
+            RegisterModel model = new RegisterModel
             {
                 UserName = "你好",
                 IsMale = true
@@ -25,7 +24,7 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string username, IndexModel model)
+        public ActionResult Index(string username, RegisterModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -33,7 +32,7 @@ namespace UI.Controllers
             }
             ViewBag.UserName = username;
 
-            return View();
+            return Redirect("/Register/Failed");
         }
 
         [ChildActionOnly]
