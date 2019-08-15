@@ -1,4 +1,5 @@
 ﻿@model UI.Models.Register.RegisterModel
+
 @{
     ViewBag.Title = "Register";
 }
@@ -20,18 +21,17 @@
             @using (Html.BeginForm())
             {
                 <label>用户名：</label><br />
-                //@Html.LabelFor(m => m.UserName)<br />
                 @Html.TextBoxFor(m => m.UserName)<br />
-                //<input type="text" name="UserName" /><br />
                 @Html.ValidationMessageFor(m => m.UserName)<br />
 
-                //<label>密码：</label><br />
-                //<input type="password" /><br />
-
                 <label>密码：</label><br />
-                //<input type="password" @Html.TextBoxFor(m => m.PassWord) />
                 @Html.PasswordFor(m => m.PassWord)<br />
-                @Html.ValidationMessageFor(m => m.PassWord)<br />
+                @Html.ValidationMessageFor(m => m.PassWord)<br>
+
+                <label>确认密码</label><br />
+                @Html.PasswordFor(m => m.ConfirmPassWord)<br />
+                @Html.ValidationMessageFor(m => m.ConfirmPassWord)<br />
+
                 <div>
                     <label>@Html.RadioButtonFor(m => m.IsMale, true)男</label>
                     <label>@Html.RadioButtonFor(m => m.IsMale, false)女</label>
@@ -43,15 +43,22 @@
                     <label>介绍：</label>@Html.TextAreaFor(m => m.SelfIntroduction)
                 </div>
                 <div>
-                    <label>@Html.CheckBoxFor(m => m.RememberMe)记住我</label>
-
-
-                    <label><input type="checkbox" name="Remember" value="true" />记住你</label><br />
-                    <input type="submit" value="提交" />
-
+                    <label>记住我</label>@Html.CheckBoxFor(m => m.RememberMe)<br />
+                    <label>记住你<input type="checkbox" name="Remember" value="true" /></label><br />
                 </div>
-                //<button type="submit">提交</button>
-                //<style="width:40px"></style="width:40px"> 设置尺寸的
+                <div>
+                    <label>
+                        验证码：
+                        @Html.TextBoxFor(m => m.Captcha, new { style = "width:60px" })
+                        <a href="/Register">
+                            <img src="/Captcha/Get" alt="点击刷新" />
+                        </a>
+                    </label>
+                    <br />
+                    @Html.ValidationMessageFor(m => m.Captcha)
+                    <br />
+                    <input type="submit" value="提交" />
+                </div>
             }
         </p>
         <h5>如果你点我，我就会消失。</h5>

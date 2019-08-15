@@ -15,12 +15,17 @@ namespace UI.Models.Register
         //[DataType(DataType.Password)]
         public string PassWord { get; set; }
 
+        [Compare("PassWord", ErrorMessage = "* 两次输入密码不一致")]
+        public string ConfirmPassWord { get; set; }
+
         public bool? IsMale { get; set; }
         public string SelfIntroduction { get; set; }
 
         public Cities? InCity { get; set; }
 
         public bool RememberMe { get; set; }
+
+        public string Captcha { get; set; }
     }
 
     public enum Cities

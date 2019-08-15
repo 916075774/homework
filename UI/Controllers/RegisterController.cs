@@ -30,7 +30,14 @@ namespace UI.Controllers
             {
                 return View(model);
             }
-            ViewBag.UserName = username;
+
+            //验证码比较
+            if (model.Captcha != Session[CaptchaController.CAPTCHA].ToString())
+            {
+                ModelState.AddModelError("Captcha", "* 验证码输出错误");
+                return View(model);
+            }
+
 
             return Redirect("/Register/Failed");
         }
