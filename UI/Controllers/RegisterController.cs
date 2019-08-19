@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using UI.Models.Register;
+using UI.Models.User;
 
 namespace UI.Controllers
 {
     public class RegisterController : Controller
     {
+        SQLContext db = new SQLContext();
+
         [HttpGet]
         public ActionResult Index(int? id)
         {
-
-            RegisterModel model = new RegisterModel
+            User model = new User
             {
                 UserName = "你好",
                 IsMale = true
@@ -24,23 +25,22 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string username, RegisterModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+        //public ActionResult Index(string username, User model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
 
-            //验证码比较
-            if (model.Captcha != Session[CaptchaController.CAPTCHA].ToString())
-            {
-                ModelState.AddModelError("Captcha", "* 验证码输出错误");
-                return View(model);
-            }
+        //    //验证码比较
+        //    if (model.Captcha != Session[CaptchaController.CAPTCHA].ToString())
+        //    {
+        //        ModelState.AddModelError("Captcha", "* 验证码输出错误");
+        //        return View(model);
+        //    }
 
-
-            return Redirect("/Register/Failed");
-        }
+        //    return Redirect("/Register/Failed");
+        //}
 
         [ChildActionOnly]
         public PartialViewResult Reminder(int? id)
@@ -52,5 +52,14 @@ namespace UI.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Index(User user)
+        {
+            db.Users.Add(user);
+            db.SaveChanges();
+            return View();
+        }
+        
     }
 }
