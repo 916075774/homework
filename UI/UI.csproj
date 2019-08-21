@@ -125,6 +125,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\CaptchaController.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\HelloController.cs" />
@@ -187,6 +188,10 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Hello\Index.cshtml" />
     <Content Include="Views\Download\Index.cshtml" />
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\Article\Publish.cshtml" />
+    <Content Include="Views\Article\Single.cshtml" />
+    <Content Include="Views\Article\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

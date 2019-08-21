@@ -9,10 +9,10 @@ namespace UI.Models.User
 {
     public class User
     {
-        [Required(ErrorMessage ="* 用户名不能为空")]
+        [Required(ErrorMessage = "* 用户名不能为空")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage ="* 密码不能为空")]
+        [Required(ErrorMessage = "* 密码不能为空")]
         //[DataType(DataType.Password)]
         public string PassWord { get; set; }
         public int Id { get; set; }
@@ -28,8 +28,6 @@ namespace UI.Models.User
         public Cities? InCity { get; set; }
         [NotMapped]
         public bool RememberMe { get; set; }
-        [NotMapped]
-        public string Captcha { get; set; }
     }
 
     public enum Cities

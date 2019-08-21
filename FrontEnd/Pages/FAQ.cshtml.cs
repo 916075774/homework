@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FrontEnd.Pages
 {
-    public class SupervisionModel : PageModel
+    public class FAQModel : PageModel
     {
         public void OnGet()
         {

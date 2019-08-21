@@ -21,6 +21,18 @@
                 @Html.TextBoxFor(m => m.PassWord)<br />
 
                 <div>
+                    <label>
+                        验证码：<br />
+                        @Html.TextBoxFor(m => m.Captcha, new { style = "width:60px" })
+                        @Html.ValidationMessageFor(m => m.Captcha)
+                        <a href="/Login">
+                            <img src="/Captcha/Get" alt="点击刷新" />
+                        </a>
+                    </label>
+                    <br />
+                </div>
+
+                <div>
                     <label><input type="checkbox" name="Remember" value="true" />记住你</label><br />
                     <input type="submit" value="提交" />
 

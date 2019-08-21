@@ -46,19 +46,8 @@
                     <label>记住我</label>@Html.CheckBoxFor(m => m.RememberMe)<br />
                     <label>记住你<input type="checkbox" name="Remember" value="true" /></label><br />
                 </div>
-                <div>
-                    <label>
-                        验证码：
-                        @Html.TextBoxFor(m => m.Captcha, new { style = "width:60px" })
-                        <a href="/Register">
-                            <img src="/Captcha/Get" alt="点击刷新" />
-                        </a>
-                    </label>
-                    <br />
-                    @Html.ValidationMessageFor(m => m.Captcha)
-                    <br />
-                    <input type="submit" value="提交" />
-                </div>
+
+                <input type="submit" value="提交" />
             }
         </p>
         <h5>如果你点我，我就会消失。</h5>

@@ -25,41 +25,37 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        //public ActionResult Index(string username, User model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
+        public ActionResult Index(User user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(user);
+            }
+            db.Users.Add(user);
+            db.SaveChanges();
 
-        //    //验证码比较
-        //    if (model.Captcha != Session[CaptchaController.CAPTCHA].ToString())
-        //    {
-        //        ModelState.AddModelError("Captcha", "* 验证码输出错误");
-        //        return View(model);
-        //    }
+            return Redirect("/Register/Reminder");
+        }
 
-        //    return Redirect("/Register/Failed");
-        //}
+        public ActionResult Reminder()
+        {
+            return View();
+        }
 
         [ChildActionOnly]
-        public PartialViewResult Reminder(int? id)
+        public PartialViewResult Failed(int? id)
         {
             ViewBag.Id = id;
             return PartialView();
         }
-        public ActionResult Failed()
-        {
-            return View();
-        }
 
-        [HttpPost]
-        public ActionResult Index(User user)
-        {
-            db.Users.Add(user);
-            db.SaveChanges();
-            return View();
-        }
-        
+        //[HttpPost]
+        //public ActionResult Index(User user)
+        //{
+        //    db.Users.Add(user);
+        //    db.SaveChanges();
+        //    return View();
+        //}
+
     }
 }
