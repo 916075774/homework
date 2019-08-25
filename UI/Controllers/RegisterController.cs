@@ -16,10 +16,9 @@ namespace UI.Controllers
         {
             User model = new User
             {
-                UserName = "你好",
                 IsMale = true
             };
-            ViewBag.Id = id;
+            
 
             return View(model);
         }
@@ -42,6 +41,7 @@ namespace UI.Controllers
             return View();
         }
 
+        //定义一个部分页
         [ChildActionOnly]
         public PartialViewResult Failed(int? id)
         {

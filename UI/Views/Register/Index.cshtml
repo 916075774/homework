@@ -3,15 +3,10 @@
 @{
     ViewBag.Title = "Register";
 }
-
+<!DOCTYPE html>
+<html>
 <head>
-    <script>
-        $(document).ready(function () {
-            $("h5").click(function () {
-                $(this).hide();
-            });
-        });
-    </script>
+
 </head>
 
 <body>
@@ -21,20 +16,20 @@
             @using (Html.BeginForm())
             {
                 <label>用户名：</label><br />
-                @Html.TextBoxFor(m => m.UserName)<br />
+                @Html.TextBoxFor(m => m.UserName,new { placeholder="请输入用户名",style="width:300px;"})<br />
                 @Html.ValidationMessageFor(m => m.UserName)<br />
 
                 <label>密码：</label><br />
-                @Html.PasswordFor(m => m.PassWord)<br />
+                @Html.PasswordFor(m => m.PassWord,new {placeholder="请输入密码", style="width:100px"} )<br />
                 @Html.ValidationMessageFor(m => m.PassWord)<br>
 
                 <label>确认密码</label><br />
-                @Html.PasswordFor(m => m.ConfirmPassWord)<br />
+                @Html.PasswordFor(m => m.ConfirmPassWord,new { style = "width:60px" })<br />
                 @Html.ValidationMessageFor(m => m.ConfirmPassWord)<br />
 
                 <div>
-                    <label>@Html.RadioButtonFor(m => m.IsMale, true)男</label>
-                    <label>@Html.RadioButtonFor(m => m.IsMale, false)女</label>
+                    <label>@Html.RadioButtonFor(m => m.IsMale, false)男</label>
+                    <label>@Html.RadioButtonFor(m => m.IsMale, true)女</label>
                 </div>
                 <div>
                     <label>来自：</label>@Html.EnumDropDownListFor(m => m.InCity)
@@ -43,15 +38,14 @@
                     <label>介绍：</label>@Html.TextAreaFor(m => m.SelfIntroduction)
                 </div>
                 <div>
-                    <label>记住我</label>@Html.CheckBoxFor(m => m.RememberMe)<br />
-                    <label>记住你<input type="checkbox" name="Remember" value="true" /></label><br />
+                    <label>记住我</label>@Html.CheckBoxFor(m => m.RememberMe)
+                    @*<label>记住你<input type="checkbox" name="Remember" value="true" /></label><br />*@
                 </div>
 
                 <input type="submit" value="提交" />
             }
         </p>
-        <h5>如果你点我，我就会消失。</h5>
-        <h5>继续点我!</h5>
-        <h5>接着点我!</h5>
+
     </div>
 </body>
+</html>
