@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Login";
 }
-
+<!DOCTYPE html>
+<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
@@ -21,14 +22,11 @@
                 @Html.TextBoxFor(m => m.PassWord)<br />
 
                 <div>
-                    <label>
-                        验证码：<br />
-                        @Html.TextBoxFor(m => m.Captcha, new { style = "width:60px" })
-                        @Html.ValidationMessageFor(m => m.Captcha)
-                        <a href="/Login">
-                            <img src="/Captcha/Get" alt="点击刷新" />
-                        </a>
-                    </label>
+                    <label>验证码：</label>
+                    @Html.TextBoxFor(m => m.Captcha, new { style = "width:60px" })
+                    <img id="captcha" src="/Captcha/Get" alt="点击刷新" />
+                    <a href="#" onclick="refreshCaptcha()">刷新</a>
+                    @Html.ValidationMessageFor(m => m.Captcha)
                     <br />
                 </div>
 
@@ -43,3 +41,12 @@
         </p>
     </div>
 </body>
+</html>
+<script>
+    function refreshCaptcha() {
+        var captcha = document.getElementById("captcha"),
+            url = captcha.getAttribute("src"),
+            random = Math.random();
+        captcha.setAttribute("src", url + "?version=" + random);
+    }
+</script>

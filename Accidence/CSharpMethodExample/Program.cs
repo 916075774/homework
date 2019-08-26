@@ -11,8 +11,10 @@ namespace CSharpMethodExample
 
             double result = Calculator.ConeVolume(100, 100);
             Console.WriteLine(result);
+
             Calculator c = new Calculator();
             Action myAction = new Action(c.PrinHello);
+
             myAction();
 
             int[] array = new int[] { 1, 2, 3, 4, 5 };
