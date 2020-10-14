@@ -2,9 +2,23 @@
 @model IndexModel
 
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
+    <meta charset="utf-8" />
+
     <title>首页😊</title>
+    <style>
+        div {
+            border-top: 5px solid blue;
+            border-left: 5px solid red;
+            border-right: 5px solid yellow;
+        }
+    </style>
+
+    <script src="~/js/site.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+
 </head>
 <body>
     <h1>首页 😀 </h1>
@@ -36,6 +50,54 @@
         <a href="/Article">文章</a>
     </div>
     <hr />
+
+
+    <script>
+        var greet = function (fg) {
+            console.log("你好" + fg);
+            return '你好'
+        }
+        var morning = greet;
+
+        // 取最大值
+        var number = [1, 22, 44, 123123, 23, 11, 33, 25];
+
+        var maxValue = function () {
+            var max = number[0];
+            for (var i = 0; i < number.length - 1; i++) {
+                if (max < number[i + 1]) {
+                    max = number[i + 1];
+                } else {
+                    // 不予处理
+                }
+            }
+            return max;
+        }
+        console.log(maxValue());
+
+
+        // 留给晚上的作业, 冒泡排序
+
+
+        //var num = prompt("请输出一个大于1的值");
+
+        //alert(num);
+
+        var xy = {
+            name:'小屿',
+            age: 18,
+            major: 'C#',
+        };
+        var arr = [1, 2, 3, '上课', '睡觉', '打豆豆'];
+        for (var i in xy) {
+            console.log(xy[i]);
+        }
+
+        for (var i = 0; i < length; i++) {
+
+        }
+
+    </script>
 
 </body>
 </html>

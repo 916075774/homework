@@ -10,13 +10,42 @@ using HomeWork;
 
 namespace HomeWork._17bang
 {
+    class Test
+    {      
+
+    }
     class Program
     {
+        
         public static void Main(string[] args)
         {
-            string q = null;
+
+
+            int x1 = 10;
+            Console.WriteLine(++x1);
+            Console.WriteLine(x1);
+
+            int x = 1;
+            string y = "1";
+            var xx = x + y;
+            var yy = 1 + "1";
+            var kk = 1 + '1';
+            Console.WriteLine(xx);
+            Console.WriteLine(xx.GetType());
+            Console.WriteLine(yy);
+            Console.WriteLine(yy.GetType());
+            Console.WriteLine(kk);
+            Console.WriteLine(kk.GetType());
+            char j = '1';
+            int jj = j;
+            Console.WriteLine(jj);
+
+
+  /*          string q = null;
             string p = q ?? "3";
-            Console.WriteLine(p);
+            Console.WriteLine(p);*/
+
+      
 
 
             //Console.WriteLine(Type.GetType("Junior.Student"));
